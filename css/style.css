@@ -1,0 +1,15 @@
+.table,
+.table thead th {
+  border: solid 3px #e08181;
+}
+.table tbody tr td {
+  border: solid 2px #e0c2c2;
+}
+.container label {
+  font-family: sans-serif !important;
+  font-size: 1.1rem !important;
+  color: #4184ff !important;
+  font-weight: 600 !important;
+  padding: 10px !important;
+  border-left: solid 1px !important;
+}
