@@ -1,3 +1,16 @@
+@import url("https://fonts.googleapis.com/css?family=Cuprum&display=swap");
+body {
+  overflow-x: hidden;
+}
+* {
+  font-family: "Cuprum", sans-serif;
+}
+.alert p {
+  text-align: center;
+}
+.inputs {
+  width: 50% !important;
+}
 .table,
 .table thead th {
   border: solid 3px #e08181;
@@ -6,10 +19,99 @@
   border: solid 2px #e0c2c2;
 }
 .container label {
-  font-family: sans-serif !important;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif !important;
   font-size: 1.1rem !important;
   color: #4184ff !important;
   font-weight: 600 !important;
   padding: 10px !important;
   border-left: solid 1px !important;
+}
+.welcome h4 {
+  font-size: 1.3rem;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  padding: 15px;
+  text-align: center;
+  color: teal;
+  box-shadow: 1px 2px 4px, -1px -2px 4px tomato;
+  border: solid 1px;
+  margin-top: 15px;
+}
+.shadows {
+  box-shadow: 0 0.2rem 0.5rem rgba(0, 0, 0, 0.175) !important
+  ;
+}
+.form-control {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+.border-box {
+  padding: 20px;
+  border: solid #6c757d 1px;
+}
+.table-container {
+  height: auto;
+}
+.row {
+  background-color: #343a40;
+  color: #fff;
+  padding: 15px;
+  border-radius: 50px 50px 10px 10px;
+}
+.row p {
+  margin: auto;
+}
+.icon-form {
+  position: relative;
+}
+.icon-form input {
+  padding-left: 55px;
+}
+.icon-form i {
+  position: absolute;
+  left: 0;
+  font-size: 1.3rem;
+  top: 0;
+  transition: all 0.2s;
+  background-color: #3c3b3b;
+  color: #fff;
+  padding: 10.5px 10px;
+  border-radius: 5px 0 0 5px;
+}
+.icon-form .fa-dollar-sign {
+  padding: 10.5px 14.7px;
+}
+.icon-form .fa-clinic-medical {
+  padding: 10.5px 7.7px;
+}
+.icon-form input:focus + i {
+  color: rgb(73, 65, 65);
+  background-color: dodgerblue;
+}
+/*Contact me*/
+.contact-me {
+  width: 80%;
+}
+.contact-me h1 {
+  font-size: 1.1rem;
+  border: solid 1px;
+  width: 20%;
+  padding: 10px;
+  color: teal;
+  text-align: center;
+  text-transform: uppercase;
+}
+.contact-me p {
+  padding-left: 20px;
+  width: 89%;
+  font-size: 1.5rem;
+}
+.contact-me p:last-child {
+  padding-left: 20px;
+  width: 79%;
+  font-size: 0.9rem;
+}
+.copy-emd {
+  background-color: darkslategray;
+  color: #fff;
+  padding: 15px;
+  border-radius: 50px 50px 50px 50px;
 }

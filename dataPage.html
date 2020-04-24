@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Date Patient</title>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/font-icon.css" />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <div class="pl-3 pt-2">
+      <a href="index.html">Home</a> > <span>Data Page</span>
+    </div>
+    <!---Search-->
+    <div class="container">
+      <div class="w-50 py-4 m-auto text-center">
+        <h3>Search a Patient</h3>
+        <input
+          type="text"
+          onkeyup="searchProudct(this.value)"
+          placeholder="Entry Patient name..."
+          class="form-control shadows"
+        />
+      </div>
+    </div>
+    <!---Data-->
+    <div class="container">
+      <table class="table text-center">
+        <thead>
+          <th>Patient Number</th>
+          <th>Patient Name</th>
+          <th>Detection Type</th>
+          <th>Detection Price</th>
+          <th>Dector Name</th>
+          <th>Remarks</th>
+          <th>Update</th>
+          <th>Delete</th>
+        </thead>
+        <tbody id="tableBody" class="text-center"></tbody>
+      </table>
+    </div>
+    <div class="row copy-emd">
+      <p>
+        &copy; All rights are save &infin;
+        <span
+          ><a
+            href="ContactUs.html"
+            target="_blank"
+            class="text-warning font-weight-bold"
+            >Contact and About us</a
+          ></span
+        >
+      </p>
+    </div>
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>

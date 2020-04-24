@@ -1,99 +1,122 @@
 var currentIndex = 0,
-  productName = document.getElementById("productName"),
-  productPrice = document.getElementById("productPrice"),
-  productCategory = document.getElementById("productCategory"),
-  productDesc = document.getElementById("productDesc"),
+  PatientName = document.getElementById("PatientName"),
+  detectionType = document.getElementById("detectionType"),
+  detectionPrice = document.getElementById("detectionPrice"),
+  drname = document.getElementById("drname"),
+  remarks = document.getElementById("Remarks"),
   addBtn = document.getElementById("addBtn"),
-  productList;
+  addBtn = document.getElementById("addBtn"),
+  patientList;
+//-------------------------------------------------------------\\
 
-if (localStorage.getItem("myProduct") == null) {
-  productList = [];
+if (localStorage.getItem("myPatinet") == null) {
+  patientList = [];
 } else {
-  productList = JSON.parse(localStorage.getItem("myProduct"));
-  disliayproduct();
+  patientList = JSON.parse(localStorage.getItem("myPatinet"));
+  disliayPatinets();
 }
+// (function checkDataName() {
+// nameRejex = /^[a-z]{3,15} |[a-z]{3,15} |[a-z]{3,15}$/;
+//   PatientName.addEventListener("keyup", function () {
+//     if (nameRejex.test(PatientName.value) == false) {
+//       PatientName.classList.add("is-invalid");
+//       PatientName.classList.remove("is-valid");
+//       addBtn.disabled = "true";
+//     } else {
+//       PatientName.classList.add("is-valid");
+//       PatientName.classList.remove("is-invalid");
+//       addBtn.removeAttribute("disabled");
+//     }
+//   });
+// })();
 
-function addProduct() {
-  if (addBtn.innerHTML == "add") {
-    var product;
-    product = {
-      name: productName.value,
-      price: productPrice.value,
-      category: productCategory.value,
-      desc: productDesc.value,
+function addPatinet() {
+  if (addBtn.innerHTML == "Record") {
+    var Patinet = {
+      name: PatientName.value,
+      type: detectionType.value,
+      price: detectionPrice.value,
+      dr: drname.value,
+      remarks: remarks.value,
     };
-    productList.push(product);
-    localStorage.setItem("myProduct", JSON.stringify(productList));
-    disliayproduct();
+    patientList.push(Patinet);
+    localStorage.setItem("myPatinet", JSON.stringify(patientList));
+    disliayPatinets();
     claerForm();
-    addBtn.innerHTML = "add";
+    addBtn.innerHTML = "Record";
   } else {
-    var product = {
-      name: productName.value,
-      price: productPrice.value,
-      category: productCategory.value,
-      desc: productDesc.value,
+    var Patinet = {
+      name: PatientName.value,
+      type: detectionType.value,
+      price: detectionPrice.value,
+      dr: drname.value,
+      remarks: remarks.value,
     };
-    productList[currentIndex] = product;
-    localStorage.setItem("myProduct", JSON.stringify(productList));
-    disliayproduct();
+    patientList[currentIndex] = Patinet;
+    localStorage.setItem("myPatinet", JSON.stringify(patientList));
+    disliayPatinets();
     claerForm();
-    addBtn.innerHTML = "add";
+    addBtn.innerHTML = "Record";
   }
 }
-function disliayproduct() {
+function disliayPatinets() {
   var box = "";
-  for (var i = 0; i < productList.length; i++) {
+  for (var i = 0; i < patientList.length; i++) {
     box +=
       `<tr><td>` +
       i +
       `</td>
       <td>` +
-      productList[i].name +
+      patientList[i].name +
       `</td>
     <td> ` +
-      productList[i].price +
+      patientList[i].type +
       `</td>
     <td> ` +
-      productList[i].category +
+      patientList[i].price +
       `</td>
     <td> ` +
-      productList[i].desc +
+      patientList[i].dr +
       `</td>
-      <td><button onclick="upDateProduct(` +
+    <td> ` +
+      patientList[i].remarks +
+      `</td>
+      <td><button onclick="upDatePatinet(` +
       i +
-      `)" class="btn btn-warning">Update</button></td>
-      <td><button onclick="deleteProduct(` +
+      `)" class="btn btn-warning shadows">Update</button></td>
+      <td><button onclick="deletePatinet(` +
       i +
-      `)" class="btn btn-danger">Delete</button></td>
-    </tr>`;
+      `)" class="btn btn-danger shadows">Delete</button></td> </tr>`;
   }
   document.getElementById("tableBody").innerHTML = box;
 }
-
 function searchProudct(term) {
   var box = "";
-  for (i = 0; i < productList.length; i++) {
-    if (productList[i].name.includes(term.trim()) == true) {
+  for (i = 0; i < patientList.length; i++) {
+    if (patientList[i].name.includes(term.trim()) == true) {
       box +=
         `<tr><td>` +
         i +
-        `</td><td>` +
-        productList[i].name +
+        `</td>
+      <td>` +
+        patientList[i].name +
         `</td>
     <td> ` +
-        productList[i].price +
+        patientList[i].type +
         `</td>
     <td> ` +
-        productList[i].category +
+        patientList[i].price +
         `</td>
     <td> ` +
-        productList[i].desc +
+        patientList[i].dr +
         `</td>
-        <td><button onclick="upDateProduct(` +
+    <td> ` +
+        patientList[i].remarks +
+        `</td>
+        <td><button onclick="upDatePatinet(` +
         i +
         `)" class="btn btn-warning">Update</button></td>
-        <td><button onclick="deleteProduct(` +
+        <td><button onclick="deletePatinet(` +
         i +
         `)" class="btn btn-danger">Delete</button></td></tr>`;
     }
@@ -101,27 +124,28 @@ function searchProudct(term) {
   document.getElementById("tableBody").innerHTML = box;
 }
 
-function deleteProduct(index) {
-  productList.splice(index, 1);
-  localStorage.setItem("myProduct", JSON.stringify(productList));
-  disliayproduct();
+function deletePatinet(index) {
+  patientList.splice(index, 1);
+  localStorage.setItem("myPatinet", JSON.stringify(patientList));
+  disliayPatinets();
 }
-
 function claerForm() {
-  var product;
-  product = {
-    name: (productName.value = ""),
-    price: (productPrice.value = ""),
-    category: (productCategory.value = ""),
-    desc: (productDesc.value = ""),
+  var Patinet = {
+    name: (PatientName.value = ""),
+    type: (detectionType.value = ""),
+    price: (detectionPrice.value = ""),
+    dr: (drname.value = ""),
+    remarks: (remarks.value = ""),
   };
 }
 
-function upDateProduct(index) {
+function upDatePatinet(index) {
   currentIndex = index;
-  productName.value = productList[index].name;
-  productPrice.value = productList[index].price;
-  productCategory.value = productList[index].category;
-  productDesc.value = productList[index].desc;
+  PatientName.value = patientList[index].name;
+  detectionType.value = patientList[index].type;
+  detectionPrice.value = patientList[index].price;
+  drname.value = patientList[index].dr;
+  remarks.value = patientList[index].remarks;
+
   addBtn.innerHTML = "Update";
 }
